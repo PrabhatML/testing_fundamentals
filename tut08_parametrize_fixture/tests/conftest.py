@@ -5,7 +5,9 @@ import pytest
 
 @pytest.fixture
 def dummy_student(request):
-    return Student("Prabhat",datetime(2000,1,1),"coe",request.param)
+    if getattr(request,'param',None):
+        return Student("Prabhat",datetime(2000,1,1),"coe",request.param)
+    return Student("Prabhat",datetime(2000,1,1),"coe",50)
 
 
 @pytest.fixture
