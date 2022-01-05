@@ -11,7 +11,8 @@ class TestSample:
     def test_sample_add_str(self):
         assert sample_add("a","b") == "ab"
 
-    @pytest.mark.xfail
+    # When user is ok with failed test cases
+    @pytest.mark.xfail(sys.platform == "win32",reason="Dont run on windows")
     def test_sample_add_number(self):
             assert sample_add(1,2) == 3
             raise Exception()
